@@ -50,9 +50,8 @@ public:
 
     bool contains(const std::string& name) const {
         return std::find_if(storage_.begin(), storage_.end(),
-            [&name](const auto& a) { return a.name == name; }) != storage_.end();
+            [&name](const Attachment& a) { return a.name == name; }) != storage_.end();
     }
-
     template<typename T>
     bool is(const std::string& name) const {
         auto it = find(name);
@@ -85,7 +84,7 @@ public:
 
     void remove(const std::string& name) {
         storage_.erase(std::remove_if(storage_.begin(), storage_.end(),
-            [&name](const auto& a) { return a.name == name; }), storage_.end());
+            [&name](const Attachment& a) { return a.name == name; }), storage_.end());
     }
 
     void clear() { storage_.clear(); }
@@ -96,12 +95,12 @@ public:
 private:
     Storage::const_iterator find(const std::string& name) const {
         return std::find_if(storage_.begin(), storage_.end(),
-            [&name](const auto& a) { return a.name == name; });
+            [&name](const Attachment& a) { return a.name == name; });
     }
 
     Storage::iterator find(const std::string& name) {
         return std::find_if(storage_.begin(), storage_.end(),
-            [&name](const auto& a) { return a.name == name; });
+            [&name](const Attachment& a) { return a.name == name; });
     }
 };
 
