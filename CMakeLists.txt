@@ -5,3 +5,11 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(${PROJECT_NAME}
     main.cpp
 )
+
+add_executable(${PROJECT_NAME}_any
+    main_any.cpp
+)
+
+add_executable(performance_test
+    performance_test.cpp
+)
